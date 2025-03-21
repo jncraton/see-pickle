@@ -21,9 +21,19 @@
       "🍟", "🍦", "🎮", "📚", "💡", "🐙", "🚴‍♀️", "🏀", "🚤", "🛸", "🚲", "😎", "🎨", "🎵",
       "🐢", "🐟", "🦋", "🐞", "🌼"
     ]
+
+    let hasPickle = false
+    
     window.setInterval(() => {
       let el = document.createElement('span')
       let idx = Math.floor((Math.random() * emojis.length))
+
+      if (idx == 0 && !hasPickle) {
+        hasPickle = true
+      } else if (idx == 0) {
+        idx = 1
+      }
+      
       el.textContent = emojis[idx]
       el.style.left = Math.random() * 100 + '%'
       el.style.top = Math.random() * 100 + '%'
@@ -31,6 +41,7 @@
 
       window.setTimeout(() => {
         el.remove()
+        hasPickle = false
       }, 1000)
     }, 100)
     </script>
