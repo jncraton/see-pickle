@@ -28,6 +28,10 @@
       el.style.left = Math.random() * 100 + '%'
       el.style.top = Math.random() * 100 + '%'
       document.body.append(el)
+
+      window.setTimeout(() => {
+        el.remove()
+      }, 1000)
     }, 100)
     </script>
   </body>
