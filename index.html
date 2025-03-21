@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>See Pickle</title>
-    <style></style>
+    <style>
+    span {
+      font-size: 64px;
+      position: fixed;
+    }
+    </style>
   </head>
 
   <body>
@@ -15,6 +20,8 @@
     window.setInterval(() => {
       let el = document.createElement('span')
       el.textContent = emojis[0]
+      el.style.left = Math.random() * 100 + '%'
+      el.style.top = Math.random() * 100 + '%'
       document.body.append(el)
     }, 100)
     </script>
