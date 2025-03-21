@@ -22,14 +22,14 @@
       "🐢", "🐟", "🦋", "🐞", "🌼"
     ]
 
-    let hasPickle = false
+    let pickleTime = 0
     
     window.setInterval(() => {
       let el = document.createElement('span')
       let idx = Math.floor((Math.random() * emojis.length))
 
-      if (idx == 0 && !hasPickle) {
-        hasPickle = true
+      if (idx == 0 && !pickleTime) {
+        pickleTime = Date.now()
       } else if (idx == 0) {
         idx = 1
       }
@@ -41,7 +41,7 @@
 
       window.setTimeout(() => {
         el.remove()
-        hasPickle = false
+        pickleTime = 0
       }, 1000)
     }, 100)
     </script>
