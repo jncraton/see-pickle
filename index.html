@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <script></script>
+    <script>
+    const emojis = ['🥒']
+
+    window.setInterval(() => {
+      let el = document.createElement('span')
+      el.textContent = emojis[0]
+      document.body.append(el)
+    }, 100)
+    </script>
   </body>
 </html>
