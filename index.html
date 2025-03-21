@@ -15,11 +15,16 @@
 
   <body>
     <script>
-    const emojis = ['🥒']
-
+    const emojis = [
+      "🥒", "😄", "🚀", "🌈", "🍕", "🎩", "🎸", "🐱", "🦄", "⚽", "🌮", "🎲", "🎯", "🌻", "🐶",
+      "🍀", "🍄", "🍁", "🐼", "🔥", "🌺", "💎", "🎁", "🤖", "😺", "🌍", "🌙", "🌠", "🍉", "🍔",
+      "🍟", "🍦", "🎮", "📚", "💡", "🐙", "🚴‍♀️", "🏀", "🚤", "🛸", "🚲", "😎", "🎨", "🎵",
+      "🐢", "🐟", "🦋", "🐞", "🌼"
+    ]
     window.setInterval(() => {
       let el = document.createElement('span')
-      el.textContent = emojis[0]
+      let idx = Math.floor((Math.random() * emojis.length))
+      el.textContent = emojis[idx]
       el.style.left = Math.random() * 100 + '%'
       el.style.top = Math.random() * 100 + '%'
       document.body.append(el)
