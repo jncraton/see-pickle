@@ -24,12 +24,19 @@
 
     let pickleTime = 0
     let playing = true
+    let pickle
+
+    const gameOver = () => {
+      pickle = null
+      playing = false
+      pickleTime = 0
+    }
     
     window.setInterval(() => {
       let el = document.createElement('span')
       let idx = Math.floor((Math.random() * emojis.length/4))
 
-      if (idx == 0 && pickleTime == 0) {
+      if (idx == 0 && !pickle) {
         pickleTime = Date.now()
       } else if (idx == 0) {
         idx = 1
@@ -40,27 +47,33 @@
       }
 
       el.textContent = emojis[idx]
-      el.style.left = Math.random() * 100 + '%'
-      el.style.top = Math.random() * 100 + '%'
+      el.style.left = Math.random() * 90 + '%'
+      el.style.top = Math.random() * 90 + '%'
       document.body.append(el)
+
+      if (idx == 0) {
+        pickle = el
+      }
 
       // Remove old items
       window.setTimeout(() => {
         el.remove()
-        if (idx == 0) {
-          pickleTime = 0
+        if (idx == 0 && pickle) {
+          gameOver()
         }
       }, 1000)
     }, 100)
 
     document.addEventListener('click', () => {
-      if (pickleTime != 0 && playing) {
+      if (pickle && playing) {
+        pickle.remove()
+        pickle = null
         score.textContent = +score.textContent + 1
       } else if (!playing) {
         score.textContent = 0
         playing = true
       } else {
-        playing = false
+        gameOver()
       }
     })
     </script>
