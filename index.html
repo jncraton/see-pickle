@@ -44,6 +44,7 @@
       el.style.top = Math.random() * 100 + '%'
       document.body.append(el)
 
+      // Remove old items
       window.setTimeout(() => {
         el.remove()
         if (idx == 0) {
