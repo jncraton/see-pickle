@@ -6,7 +6,7 @@
 
     <title>See Pickle</title>
     <style>
-    span {
+    span, header {
       font-size: 64px;
       position: fixed;
     }
@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <span id=score>0</span>
+    <header id=score>0</header>
     <script>
     const emojis = [
       "🥒", "😄", "🚀", "🌈", "🍕", "🎩", "🎸", "🐱", "🦄", "⚽", "🌮", "🎲", "🎯", "🌻", "🐶",
@@ -34,6 +34,17 @@
 
       document.querySelectorAll('span').forEach(el => {
         el.textContent = emojis[1]
+      })
+    }
+
+    const restart = () => {
+      pickle = null
+      playing = true
+      pickleTime = 0
+      score.textContent = 0
+
+      document.querySelectorAll('span').forEach(el => {
+        el.remove()
       })
     }
     
@@ -75,8 +86,7 @@
         pickle = null
         score.textContent = +score.textContent + 1
       } else if (!playing) {
-        score.textContent = 0
-        playing = true
+        restart()
       } else {
         gameOver()
       }
