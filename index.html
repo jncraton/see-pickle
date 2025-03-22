@@ -55,6 +55,9 @@
     document.addEventListener('click', () => {
       if (pickleTime != 0 && playing) {
         score.textContent = +score.textContent + 1
+      } else if (!playing) {
+        score.textContent = 0
+        playing = true
       } else {
         playing = false
       }
