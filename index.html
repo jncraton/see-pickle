@@ -39,7 +39,7 @@
     
     window.setInterval(() => {
       let el = document.createElement('span')
-      let idx = Math.floor((Math.random() * emojis.length/4))
+      let idx = Math.floor((Math.random() * emojis.length))
 
       if (idx == 0 && !pickle) {
         pickleTime = Date.now()
