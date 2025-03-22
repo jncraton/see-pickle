@@ -31,6 +31,10 @@
       pickle = null
       playing = false
       pickleTime = 0
+
+      document.querySelectorAll('span').forEach(el => {
+        el.textContent = emojis[1]
+      })
     }
     
     window.setInterval(() => {
