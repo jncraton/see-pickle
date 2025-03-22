@@ -23,19 +23,18 @@
     ]
 
     let pickleTime = 0
+    let playing = true
     
     window.setInterval(() => {
       let el = document.createElement('span')
       let idx = Math.floor((Math.random() * emojis.length/4))
-
-      score.textContent = pickleTime
 
       if (idx == 0 && pickleTime == 0) {
         pickleTime = Date.now()
       } else if (idx == 0) {
         idx = 1
       }
-      
+
       el.textContent = emojis[idx]
       el.style.left = Math.random() * 100 + '%'
       el.style.top = Math.random() * 100 + '%'
@@ -48,7 +47,14 @@
         }
       }, 1000)
     }, 100)
+
+    document.addEventListener('click', () => {
+      if (pickleTime != 0) {
+        score.textContent = +score.textContent + 1
+      }
+      
+    })
     </script>
-    <span id=score></span>
+    <span id=score>0</span>
   </body>
 </html>
