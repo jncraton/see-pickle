@@ -6,7 +6,7 @@
 
     <title>See Pickle</title>
     <style>
-    span, header {
+    figure, header {
       font-size: 64px;
       position: fixed;
     }
@@ -32,7 +32,7 @@
       playing = false
       pickleTime = 0
 
-      document.querySelectorAll('span').forEach(el => {
+      document.querySelectorAll('figure').forEach(el => {
         el.textContent = emojis[1]
       })
     }
@@ -43,13 +43,13 @@
       pickleTime = 0
       score.textContent = 0
 
-      document.querySelectorAll('span').forEach(el => {
+      document.querySelectorAll('figure').forEach(el => {
         el.remove()
       })
     }
     
     window.setInterval(() => {
-      let el = document.createElement('span')
+      let el = document.createElement('figure')
       let idx = Math.floor((Math.random() * emojis.length))
 
       if (idx == 0 && !pickle) {
