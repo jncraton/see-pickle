@@ -35,6 +35,10 @@
         idx = 1
       }
 
+      if (playing == false) {
+        idx = 1
+      }
+
       el.textContent = emojis[idx]
       el.style.left = Math.random() * 100 + '%'
       el.style.top = Math.random() * 100 + '%'
@@ -49,10 +53,11 @@
     }, 100)
 
     document.addEventListener('click', () => {
-      if (pickleTime != 0) {
+      if (pickleTime != 0 && playing) {
         score.textContent = +score.textContent + 1
+      } else {
+        playing = false
       }
-      
     })
     </script>
     <span id=score>0</span>
