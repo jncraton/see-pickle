@@ -26,9 +26,11 @@
     
     window.setInterval(() => {
       let el = document.createElement('span')
-      let idx = Math.floor((Math.random() * emojis.length))
+      let idx = Math.floor((Math.random() * emojis.length/4))
 
-      if (idx == 0 && !pickleTime) {
+      score.textContent = pickleTime
+
+      if (idx == 0 && pickleTime == 0) {
         pickleTime = Date.now()
       } else if (idx == 0) {
         idx = 1
@@ -41,9 +43,12 @@
 
       window.setTimeout(() => {
         el.remove()
-        pickleTime = 0
+        if (idx == 0) {
+          pickleTime = 0
+        }
       }, 1000)
     }, 100)
     </script>
+    <span id=score></span>
   </body>
 </html>
